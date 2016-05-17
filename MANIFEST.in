@@ -1,0 +1,6 @@
+include AUTHORS
+include README.rst
+recursive-include docs *
+recursive-include dripemail/static *
+recursive-include dripemail/templates *
+recursive-include dripemail/dashboard/templates *

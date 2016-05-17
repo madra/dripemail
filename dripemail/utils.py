@@ -10,8 +10,8 @@ def get_user_model():
     '''
     # handle 1.7 and back
     try:
-        from django.contrib.auth import get_user_model as django_get_user_model
-        User = django_get_user_model()
+        from django.conf import settings
+        User = settings.AUTH_USER_MODEL
     except ImportError:
         from django.contrib.auth.models import User
     return User
