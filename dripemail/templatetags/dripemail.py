@@ -6,7 +6,9 @@ from django.template import RequestContext
 
 @register.simple_tag(takes_context=True)
 def dripbox(context, title=False):
-    #context = RequestContext(request)
+    '''
+    leadcapture template tag
+    '''
     request = context['request']
     font_color = body_color = description = submit_button = None
     require_name = False
@@ -22,9 +24,7 @@ def dripbox(context, title=False):
             from django.apps import apps
             Dripbox = apps.get_model('dripemail', 'Dripbox')
         except Exception, e:
-            print e
-        print e
-
+            pass
     try:
         dripbox = Dripbox.objects.all()[:1][0]
         font_color = dripbox.font_color
@@ -35,7 +35,7 @@ def dripbox(context, title=False):
         if not title:
             title = dripbox.title
     except Exception, e:
-        print e
+        pass
     return t.render({
         'title': title,
         'font_color': font_color,

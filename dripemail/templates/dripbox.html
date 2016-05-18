@@ -35,7 +35,7 @@
               
                 <dt>First Name</dt>
                 <dd class="dripbox-clearfix">
-                    <input type="text" name="names" value="" placeholder="First Name">                  
+                    <input type="text" name="name" value="" placeholder="First Name">                  
                 </dd>
 
                 {% endif %}
@@ -48,11 +48,13 @@
         </div>
       </div>
 
+      <!--
       <div id="dripbox-success-panel" class="dripbox-success dripbox-panel dripbox-clearfix" style="display: none">
         <a id="dripbox-hide" class="dripbox-close">×</a>
         <h3>Thank you for signing up!</h3>
         <p class="description">Please check your email and click the link provided to confirm your subscription.</p>
       </div>
+    -->
 
       
     </div>
@@ -64,13 +66,12 @@
   /* === Form-Specific Styles === */
 
   #dripbox {
-    background: rgb(60,159,243) !important;
-    background: rgba(60,159,243,0.80) !important;
+    background: rgba(7, 32, 53, 0.8);
   }
 
   #dripbox .dripbox-content h3 {
-    color: #656972 !important;
-    font-size: 21px !important;
+    color: #656972 ;
+    font-size: 21px ;
   }
 
   #dripbox input[type='submit'] {
@@ -334,7 +335,6 @@
     line-height: 1.5 !important;
     font-weight: bold !important;
     text-align: left !important;
-    color: #fff !important;
     clear: none !important;
     letter-spacing: 0 !important;
   }
@@ -519,7 +519,6 @@
     line-height: 1.4 !important;
     font-weight: bold !important;
     text-align: left !important;
-    color: #4477bd !important;
     clear: none !important;
   }
 
@@ -734,3 +733,21 @@ dripbox_header.style.display='block';
 
 
 </script>
+
+
+{% if font_color or body_color %}
+
+<style type="text/css">
+
+ #dripbox {
+
+    {% if body_color%}background: {{body_color}} !important;{%endif%}
+    {% if font_color%}color: {{font_color}} !important;{%endif%}
+  }
+
+ #dripbox h1,h2,h3 {
+color: {{font_color}} !important;
+}
+
+</style>
+{% endif%}

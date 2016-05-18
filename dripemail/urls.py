@@ -33,4 +33,10 @@ urlpatterns = patterns(
     url(r'^add_dripemail/', views.add_dripemail,
         name='add_dripemail'),
 
+    url(r'^dripemail/(\w+)/subscribe$', views.subscribe,
+        name='subscribe_url'),
+
+    url(r'^dripemail/(\w+)/unsubscribe$', views.unsubscribe,
+        name='unsubscribe_url'),
+
 )
